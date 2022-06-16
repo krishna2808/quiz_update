@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Choice Subject & Question Level {% endblock title %}
+
+{% block content %}
+
+
+
+<form action="/choice_subject_and_question_level" method="POST">
+
+   
+
+    <p>
+        <label >Choose level : </label> 
+        <select name="question_level" >
+          
+                 <option value="Easy">Easy</option>
+                 <option value="Medium">Medium</option>
+                 <option value="Hard">Hard</option>     
+          </select>
+
+    
+    
+    </p>
+   <p> 
+    <label >Choose Subject : </label>
+
+    <select name="subject_name" >
+      {% for subject in subjects %}
+           <option value="{{ subject.subject_name }}">{{subject.subject_name }}</option>
+
+      {% endfor %}
+    </select>
+    </p>
+
+    <p>
+       <input type="submit" name="Submit" value="Submit">
+    </p>
+
+ </form>
+
+
+
+ 
+  
+
+{% endblock %}

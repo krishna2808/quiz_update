@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Questions {% endblock title %}
+
+{% block content %}
+
+
+
+<form action="/quiz_start/{{ question_level}}/{{ subject_name}}" method="POST">
+
+   
+
+    <p>
+        {% for question in questions %}
+        <p>  {{ question.question }} </p>
+    
+
+            (a)<input type="radio" name="{{ question.id }}" value="{{ question.option1 }}" required >  <label> {{ question.option1  }} </label>     
+
+            (b)<input type="radio"  name="{{ question.id }}" value="{{ question.option2 }}" required >  <label> {{ question.option2 }} </label>   
+
+            (c)<input type="radio"  name="{{ question.id }}" value="{{ question.option3 }}" required >  <label> {{ question.option3 }} </label>   
+
+            (d)<input type="radio"  name="{{ question.id }}" value="{{ question.option4 }}" required >  <label> {{ question.option4  }} </label>   
+
+
+
+
+        {% endfor %}
+          
+    
+    
+    </p>
+  
+
+    <p>
+       <input type="submit" name="Submit" value="Submit">
+    </p>
+
+ </form>
+
+
+  
+
+{% endblock %}

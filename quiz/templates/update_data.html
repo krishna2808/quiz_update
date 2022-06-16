@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Update  page {% endblock title %}
+
+{% block content %}
+ <form action="/update/{{ update_user.id }}" method="POST">
+ 	{{ form.hidden_tag() }}
+   <p>  
+   	{{ form.user_name.label }}
+ 
+    {{ form.user_name }}
+  </p>
+  
+<p>  
+    {{ form.mobile_number.label }}
+ 
+    {{ form.mobile_number }}
+  </p>
+
+
+  <p> 
+      {{ form.submit.label }}
+      {{ form.submit }}
+  </p> 
+   
+
+
+
+ </form>
+
+
+{% endblock %}

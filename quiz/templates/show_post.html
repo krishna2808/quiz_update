@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Post  {% endblock title %}
+
+{% block content %}
+
+{% if posts  %}
+
+
+     {% for post in posts%}
+     <div>
+       <b>   Author :  {{ user_name }} </b> <br>
+        Title : {{ post.title }}<br>
+        
+        <img src="{{ url_for('static', filename='/images/' + post.post_pic) }}" alt="image " width="400" height="400"/><br>
+
+        Content : {{ post.content }}<br>
+        Date :  {{ post.date_psosted }}<br>
+        <a href="{{url_for('delete_post', id=post.id)}}"> Delete Post </a>
+         
+      </div>
+      {% endfor %}
+
+{% else %}
+   <h2> You post is not available please add some post </h2>
+
+{% endif %}
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} History {% endblock title %}
+
+{% block content %}
+
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% if history %}
+     <table   >
+         <tr> <th> Subject Name  </th>  <th>  Score    </th>   <th>  Question Level  </th> </tr>
+    {% for history_data in history %}
+      
+                
+
+            <tr> <td> {{  subject_obj.query.filter_by(id=history_data.subject_id).first().subject_name  }} </td> <td> {{  history_data.score }}  </td> <td> {{  history_data.question_level }} </td> </tr>
+               
+    
+
+    {% endfor %}
+
+</table>
+    
+
+{% endif %}
+
+
+
+{% endblock %}

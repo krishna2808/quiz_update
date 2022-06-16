@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} DashBoard {% endblock title %}
+
+{% block content %}
+
+
+
+
+
+{% with messages = get_flashed_messages() %}
+<br>
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+
+<br>
+
+
+{% block navigation_bar %}  
+
+
+
+{% endblock %}
+
+
+    <a href="{{ url_for('users.choice_subject_and_question_level') }}">  Quiz </a>  <br>
+
+    <a href="{{ url_for('users.log_out') }}"> log Out </a>  <br>
+
+    <a href="{{ url_for('users.history') }}"> History </a>  <br>
+   
+    
+
+
+
+
+  
+
+{% endblock %}

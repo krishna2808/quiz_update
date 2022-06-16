@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+show Users 
+{% endblock %}
+
+{% block content %}
+
+  {% for data in user_data %}
+       {{ data.user_name }}
+
+  {% endfor %}
+
+
+{% endblock %}

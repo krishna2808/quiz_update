@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %} Add question {% endblock title %}
+
+{% block content %}
+
+                
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+ <form action="/add_question" method="POST">
+
+    {{ question_form.hidden_tag() }}
+    <p> 
+   	{{ question_form.select_question_level.label }}
+
+    {{ question_form.select_question_level }}
+    </p>
+
+
+    <p> 
+     {{ question_form.select_subject.label }}
+ 
+     {{ question_form.select_subject }}
+    </p>
+
+
+    <p> 
+        {{ question_form.question.label }}
+    
+        {{ question_form.question }}
+    </p>
+
+
+    <p> 
+     {{ question_form.option1.label }}
+ 
+     {{ question_form.option1 }}
+    </p>
+
+     
+    <p> 
+        {{ question_form.option2.label }}
+    
+        {{ question_form.option2 }}
+    </p>
+
+
+    <p> 
+        {{ question_form.option3.label }}
+    
+        {{ question_form.option3 }}
+    </p>
+
+
+    <p> 
+        {{ question_form.option4.label }}
+    
+        {{ question_form.option4 }}
+    </p>
+
+
+
+    <p> 
+        {{ question_form.answer.label }}
+    
+        {{ question_form.answer }}
+    </p>
+
+
+
+    <p>
+   
+    {{ question_form.submit }}
+
+  </p>
+
+ </form>
+
+
+ <a href="{{ url_for('admin.admin_dashboard') }}"> Back </a>
+  
+
+{% endblock %}

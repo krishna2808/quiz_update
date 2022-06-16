@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Update and Delete page {% endblock title %}
+
+{% block content %} 
+
+
+
+
+   <a href="{{ url_for('update', id=id) }}">  Update User </a>  <br>
+   <a href="{{ url_for('delete', id=id) }}">  Delete  User </a>
+
+
+  
+
+{% endblock %}

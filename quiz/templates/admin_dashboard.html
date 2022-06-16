@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Admin Panel  {% endblock title %}
+
+{% block content %}
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+<a href="{{ url_for('admin.show_user_data') }}"> Users</a> <br>
+
+<a href="{{ url_for('admin.subject_panel') }}"> Subject </a> <br>
+
+
+<a href="{{ url_for('admin.question_panel') }}"> Question </a>  <br>
+
+
+<a href="{{ url_for('admin.log_out') }}"> log Out </a>  <br>
+
+
+
+
+
+
+{% endblock %}

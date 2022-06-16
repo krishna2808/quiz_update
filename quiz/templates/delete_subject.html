@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete Subject {% endblock title %}
+
+{% block content %}
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+<form action="/delete_subject" method="POST">
+
+   
+   <p> 
+    <label >Choose Subject : </label>
+
+    <select name="subject_name" >
+      {% for subject in subjects %}
+           <option value="{{ subject.subject_name }}">{{subject.subject_name }}</option>
+
+      {% endfor %}
+    </select>
+    </p>
+
+    <p>
+       <input type="submit" name="Submit" value="Submit">
+    </p>
+
+ </form>
+
+
+
+ <a href="{{ url_for('admin.admin_dashboard') }}"> Back </a>
+  
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %} Registration page {% endblock title %}
+
+{% block content %}
+
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+ <form action="/admin" method="POST">
+ 	{{ form.hidden_tag() }}
+   <p> 
+   	{{ form.user_name.label }}
+ 
+    {{ form.user_name }}
+  </p>
+
+
+  {% if form.user_name.errors %}
+        
+  {% for error in form.user_name.errors %}
+      <span>{{ error }}</span>
+  {% endfor %}
+  {% endif %}
+
+
+
+ <p> 
+      {{ form.mobile_number.label }}
+      {{ form.mobile_number }}
+  </p> 
+
+
+
+  {% if form.mobile_number.errors %}
+        
+  {% for error in form.mobile_number.errors %}
+      <span>{{ error }}</span>
+  {% endfor %}
+
+
+{% endif %}
+
+   <p>
+    <label> Token Number </label>
+    <input type="text" required name="token_number">
+
+   </p>
+
+ <p> 
+      {{ form.password.label }}
+      {{ form.password }}
+  </p> 
+
+ 
+    {% if form.password.errors %}
+        
+            {% for error in form.password.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+      
+
+    {% endif %}
+
+  
+
+
+  <p> 
+    {{ form.confirm_password.label }}
+    {{ form.confirm_password }}
+
+
+    {% if form.confirm_password.errors %}
+        
+    {% for error in form.confirm_password.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+
+
+{% endif %}
+</p> 
+
+
+
+
+
+  <p> 
+     
+      {{ form.submit }}
+  </p> 
+   
+
+
+
+
+
+
+
+
+ </form>
+
+  
+<a href="{{ url_for('admin.log_in') }}"> Log In </a>
+
+
+
+{% endblock %}

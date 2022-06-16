@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Subject {% endblock title %}
+
+{% block content %}
+
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+ <form action="/add_subject" method="POST">
+
+    {{ subject_form.hidden_tag() }}
+   <p> 
+   	{{ subject_form.subject_name.label }}
+
+    {{ subject_form.subject_name }}
+    </p>
+    <p>
+  
+    {{ subject_form.submit }}
+
+  </p>
+
+ </form>
+
+
+
+ <a href="{{ url_for('admin.admin_dashboard') }}"> Back </a>
+  
+
+{% endblock %}

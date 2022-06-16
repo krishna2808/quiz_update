@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Subject Panel  {% endblock title %}
+
+{% block content %}
+
+
+
+
+<a href="{{ url_for('admin.add_subject') }}"> Add Subject </a> <br>
+<a href="{{ url_for('admin.update_subject') }}"> Update Subject </a> <br>
+
+
+<a href="{{ url_for('admin.delete_subject') }}"> Delete Subject </a> <br>
+
+
+
+{% endblock %}

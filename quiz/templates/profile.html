@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+
+
+
+
+{% with messages = get_flashed_messages() %}
+<br>
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+
+<br>
+
+
+
+<form action="" method="POST"  enctype = "multipart/form-data"> 
+
+<!-- <form action="url_for('Profile', 'user_detail.id')" method="POST">  -->
+
+
+
+{% if user_detail.user_pic == None %}
+
+<img src="#" name="image" height="100" width="100" />
+
+{% else %}
+
+<img src="{{ url_for('static', filename='/images/' + user_detail.user_pic) }}" name="image" height="100" width="100"   />
+
+{% endif %}
+
+<p> <input type="file"  name="user_pic"    accept="image/*"  >  </p>
+
+<p>    Username  :    <input type="text" name="user_name" value="{{ user_detail.user_name }}"> </p> 
+<p>    Mobile Number  :  <input type="text" name="mobile_number" value="{{ user_detail.mobile_number }}">  </p>
+  
+<p>    About author  :  <input type="text" name="about_author" value="{{ user_detail.about_author }}">  </p>
+  
+
+
+<input type="submit" value="Save">
+
+
+
+</form>
+
+
+
+  
+{% endblock %}
